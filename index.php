@@ -26,10 +26,10 @@
        <input type="submit" name="load_data" value="Load Data" />
  </form>
  <?php
-    $host = "<funitureserver.database.windows.net>";
-    $user = "<Funiture>";
-    $pass = "<Str0nghold>";
-    $db = "<Funiture>";
+    $host = "funitureserver.database.windows.net";
+    $user = "Funiture";
+    $pass = "Str0nghold";
+    $db = "Funiture";
 
     try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
