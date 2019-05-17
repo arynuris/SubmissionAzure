@@ -31,7 +31,7 @@
     $pass = "Str0nghold";
     $db = "Funiture";
 
-   try {
+    try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     } catch(Exception $e) {
@@ -60,7 +60,7 @@
         echo "<h3>Your're registered!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
-            $sql_select = "SELECT * FROM dbo.User";
+            $sql_select = "SELECT * FROM User";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
@@ -87,7 +87,6 @@
  ?>
  </body>
  </html>
-
 <!-- Placed at the end of the document so the pages load faster -->
     <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
     <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
