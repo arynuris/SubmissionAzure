@@ -31,7 +31,7 @@
     $pass = "Str0nghold";
     $db = "Funiture";
 
-    try {
+   try {
         $conn = new PDO("sqlsrv:server = $host; Database = $db", $user, $pass);
         $conn->setAttribute( PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION );
     } catch(Exception $e) {
@@ -60,23 +60,23 @@
         echo "<h3>Your're registered!</h3>";
     } else if (isset($_POST['load_data'])) {
         try {
-            $sql_select = "SELECT * FROM [dbo].[User]";
+            $sql_select = "SELECT * FROM Registration";
             $stmt = $conn->query($sql_select);
             $registrants = $stmt->fetchAll(); 
             if(count($registrants) > 0) {
                 echo "<h2>People who are registered:</h2>";
-                echo "<table class='table table-hover'><thead>";
+                echo "<table>";
                 echo "<tr><th>Name</th>";
                 echo "<th>Email</th>";
                 echo "<th>Job</th>";
-                echo "<th>Date</th></tr></thead><tbody>";
+                echo "<th>Date</th></tr>";
                 foreach($registrants as $registrant) {
                     echo "<tr><td>".$registrant['name']."</td>";
                     echo "<td>".$registrant['email']."</td>";
                     echo "<td>".$registrant['job']."</td>";
                     echo "<td>".$registrant['date']."</td></tr>";
                 }
-                echo "</tbody></table>";
+                echo "</table>";
             } else {
                 echo "<h3>No one is currently registered.</h3>";
             }
